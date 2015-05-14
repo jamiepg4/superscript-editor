@@ -11,9 +11,11 @@ var appServer = require('http').Server(app);
 var io = require('socket.io')(appServer);
 
 var port = process.env.PORT || 3000;
-var dbName = process.env.BOT || "testbot";
+var dbName = process.env.DBNAME || "testbot";
+var host = process.env.HOST || 'localhost';
+var mongoDBURL = process.env.MONGOHQ_URL || 'mongodb://' + host + '/' + dbName;
 
-var config = { db: 'mongodb://localhost/' + dbName }
+var config = { db: mongoDBURL };
 var options = { server: { socketOptions: { keepAlive: 1 } } };
 var factSystem = sfact.create(dbName);
 
