@@ -1,5 +1,5 @@
 // The main application script, ties everything together.
-
+ 
 var mongoose = require('mongoose');
 var sfact = require("sfacts");
 var ss = require("superscript");
